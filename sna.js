@@ -30,3 +30,20 @@ var data = {
     follows: ["f05"]
   }
 };
+
+//finds the person with the most follows and returns their name.
+function whoFollowMost(data)
+{
+  let maxPerson = data["f01"];
+
+  for(let person in data)
+  {
+
+    if(data[person].follows.length > maxPerson.follows.length)
+    {
+      maxPerson = data[person];
+    }
+  }
+  return maxPerson.name;
+}
+console.log(whoFollowMost(data));
