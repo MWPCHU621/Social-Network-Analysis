@@ -51,5 +51,32 @@ function whoFollowMost(data)
 //list the names of everyone as well as the names of who follows them and who they follow.
 function followAndFollowerInfo(data)
 {
+  let people = {};
+  for(person in data)
+  {
+    people[data[person].name] = {};
+    people[data[person].name]["followers"] = findFollower(data, person);
+    people[data[person].name]["follows"] =
 
+  }
+  console.log(people);
 }
+followAndFollowerInfo(data);
+
+//finds the followers of name in data and returns an array with all the follower's name. name is the object person eg. f01.
+function findFollower(data, name)
+{
+  let followers = [];
+  for(let person in data)
+  {
+    if(data[person].follows.includes(name))
+    {
+      followers.push(data[person].name);
+    }
+  }
+  //console.log(followers);
+  return followers;
+}
+
+
+
