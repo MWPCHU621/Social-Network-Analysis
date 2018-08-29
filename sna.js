@@ -46,4 +46,10 @@ function whoFollowMost(data)
   }
   return maxPerson.name;
 }
-console.log(whoFollowMost(data));
+//console.log(whoFollowMost(data));
+
+//list the names of everyone as well as the names of who follows them and who they follow.
+function followAndFollowerInfo(data)
+{
+
+}
