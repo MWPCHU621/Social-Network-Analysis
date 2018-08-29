@@ -56,7 +56,7 @@ function followAndFollowerInfo(data)
   {
     people[data[person].name] = {};
     people[data[person].name]["followers"] = findFollower(data, person);
-    people[data[person].name]["follows"] =
+    people[data[person].name]["follows"] = findFollows(data, person);
 
   }
   console.log(people);
@@ -78,5 +78,22 @@ function findFollower(data, name)
   return followers;
 }
 
-
+//finds the names of the people followed and returns an array with all the followed person's name. name is the object person eg. f01.
+function findFollows(data, name)
+{
+  let follows = [];
+  for(let person in data)
+  {
+    if(person === name)
+    {
+      for(let i = 0; i < data[person].follows.length; i++)
+      {
+        followed = data[person].follows[i];
+        follows.push(data[followed].name);
+      }
+    }
+  }
+  //console.log(follows);
+  return follows;
+}
 
